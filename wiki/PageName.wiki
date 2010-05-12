@@ -1,4 +1,4 @@
-#How to use this library
+How to use this library
 
 = Symbols file =
 
@@ -31,20 +31,20 @@ If you inherit from no mix in class and do not define your own rewrite method, t
 The simple rewrite is used for Deterministic L-system production rules; this is where a symbol rewrites to one or more symbols in the same way each time. Inherit from the simpleRewrite class to provide a simple rewriting method. To specify the rewrite, you need to define the class variable productions as a list of the names of the symbols you want to rewrite to. 
 
 eg: 
-productions = ['F','F','m','F','F']
+{{{productions = ['F','F','m','F','F']}}}
 
 == randomRewrite ==
 The random rewrite is used for Stochastic L-systems. In the same way as above, you need to inherit from the randomRewrite class and define a class variable productions; this time the form is different, it should be a list of tuples each tuple should have the probability of selecting a rule as its first member and a list for the production as its second rule. Probabilities should add up to one.
 
 eg:
-productions = [(.50,['F']),(.50,['F','F'])]
+{{{productions = [(.50,['F']),(.50,['F','F'])]}}}
 
 
 == simpleParametricRewrite == 
 This rewrite is used for simple parametric systems. The structure is again a list of tuples however this time the first member of the tuple should be the symbol to rewrite to, the second member should be a dictionary. This dictionary should contain the name of the property as it key and a lambda function taking the parameter self which returns the value for the property in the next iteration.
 
 eg:
-productions = [('F',{'length':lambda self: self.length +1})]
+{{{productions = [('F',{'length':lambda self: self.length +1})]}}}
 
 = Drawing mix ins =
 TODO (for now, look at the examples, its fairly straight forward.)
